@@ -1,0 +1,195 @@
+command /shulkershop:
+	trigger:
+		create a gui with virtual chest inventory with 1 rows named "             &f&lItem Menu" and shape "xx12345xx":
+			make gui slot "x" with black stained glass pane named " "
+
+			make gui slot "1" with white shulker box named "&8[&eTier I&8] &f&lStorage Box" with lore "&f ", "&7Cost", "&2$&a500k" and "&fWhite Fragments &8x4":
+				if {uuid1::%name of player%} exists:
+					send "&cYou can only purchase one of &8[&eTier I&8] &f&lStorage Box"
+					cancel event
+				else:
+					if name of event-slot = "&8[&eTier I&8] &f&lStorage Box":
+						if balance of player >= 500000:
+							if player has 4 ghast tear named "&fWhite Fragment":
+								remove 4 of ghast tear named "&fWhite Fragment" from player
+								remove 500000$ from player's balance
+								set {_item} to white shulker box named "&8[&eTier I&8] &f&lStorage Box"
+								enchant {_item} with unbreaking 1
+								give {_item} with all flags hidden to player
+								set {uuid1::%name of player%} to uuid of player
+							else:
+								send "&cYou don't have enough materials!"
+								cancel event
+						else:
+							send "&cYou don't have enough money!"
+							cancel event
+
+			make gui slot "2" with lime shulker box named "&8[&eTier II&8] &a&lStorage Box" with lore "&f ", "&7Cost", "&2$&a1m" and "&aGreen Fragments &8x8":
+				if {uuid2::%name of player%} exists:
+					send "&cYou can only purchase one of &8[&eTier II&8] &a&lStorage Box"
+					cancel event
+				else:
+					if balance of player >= 1000000:
+						if player has 8 scute named "&aGreen Fragment":
+							if player has a white shulker box of unbreaking 1 named "&8[&eTier I&8] &f&lStorage Box":
+								remove 1 white shulker box named "&8[&eTier I&8] &f&lStorage Box" from player
+								remove 8 of scute named "&aGreen Fragment" from player
+								remove 1000000$ from player's balance
+								set {_item} to lime shulker box named "&8[&eTier II&8] &a&lStorage Box"
+								enchant {_item} with unbreaking 1
+								give {_item} with all flags hidden to player
+								set {uuid2::%name of player%} to uuid of player
+							else:
+								send "&cYou don't have a &8[&eTier I&8] &f&lStorage Box"
+								cancel event
+						else:
+							send "&cYou don't have enough materials!"
+							cancel event
+					else:
+						send "&cyou don't have enough money!"
+						cancel event
+
+			make gui slot "3" with light blue shulker box named "&8[&eTier III&8] &b&lStorage Box" with lore "&f ", "&7Cost", "&2$&a2.5m" and "&bBlue Fragments &8x16":
+				if {uuid3::%name of player%} exists:
+					send "&cYou can only purchase one of &8[&eTier III&8] &b&lStorage Box"
+					cancel event
+				else:		
+					if balance of player >= 2500000:
+						if player has 16 diamond named "&bBlue Fragment":
+							if player has a lime shulker box of unbreaking 1 named "&8[&eTier II&8] &a&lStorage Box":
+								remove 1 lime shulker box named "&8[&eTier II&8] &a&lStorage Box" from player
+								remove 16 of diamond named "&bBlue Fragment" from player
+								remove 2500000$ from player's balance
+								set {_item} to light blue shulker box named "&8[&eTier III&8] &b&lStorage Box"
+								enchant {_item} with unbreaking 1
+								give {_item} with all flags hidden to player
+								set {uuid3::%name of player%} to uuid of player
+							else:
+								send "&cYou don't have a &8[&eTier II&8] &a&lStorage Box"
+								cancel event
+						else:
+							send "&cYou don't have enough materials!"
+							cancel event
+					else:
+						send "&cyou don't have enough money!"
+						cancel event
+
+			make gui slot "4" with red shulker box named "&8[&eTier IV&8] &c&lStorage Box" with lore "&f ", "&7Cost", "&2$&a5m" and "&cRed Fragments &8x32":
+				if {uuid4::%name of player%} exists:
+					send "&cYou can only purchase one of &8[&eTier IV&8] &c&lStorage Box"
+					cancel event
+				else:
+					if balance of player >= 5000000:
+						if player has 32 red dye named "&cRed Fragment":
+							if player has a light blue shulker box of unbreaking 1 named "&8[&eTier III&8] &b&lStorage Box":
+								remove 1 light blue shulker box named "&8[&eTier III&8] &b&lStorage Box" from player
+								remove 32 of red dye named "&cRed Fragment" from player
+								remove 5000000$ from player's balance
+								set {_item} to red shulker box named "&8[&eTier IV&8] &c&lStorage Box"
+								enchant {_item} with unbreaking 1
+								give {_item} with all flags hidden to player
+								set {uuid4::%name of player%} to uuid of player
+							else:
+								send "&cYou don't have a &8[&eTier III&8] &b&lStorage Box"
+								cancel event
+						else:
+							send "&cYou don't have enough materials!"
+							cancel event
+					else:
+						send "&cyou don't have enough money!"
+						cancel event
+
+			make gui slot "5" with purple shulker box named "&8[&eTier V&8] &5&lStorage Box" with lore "&f ", "&7Cost", "&2$&a12.5m" and "&5Purple Fragments &8x64":
+				if {uuid5::%name of player%} exists:
+					send "&cYou can only purchase one of &8[&eTier V&8] &5&lStorage Box"
+					cancel event
+				else:
+					if balance of player >= 12500000:
+						if player has 64 popped chorus fruit named "&5Purple Fragment":
+							if player has a red shulker box of unbreaking 1 named "&8[&eTier IV&8] &c&lStorage Box":
+								remove 1 red shulker box named "&8[&eTier IV&8] &c&lStorage Box" from player
+								remove 64 of popped chorus fruit named "&5Purple Fragment" from player
+								remove 12500000$ from player's balance
+								set {_item} to purple shulker box named "&8[&eTier V&8] &5&lStorage Box"
+								enchant {_item} with unbreaking 1
+								give {_item} with all flags hidden to player
+								set {uuid5::%name of player%} to uuid of player
+							else:
+								send "&cYou don't have a &8[&eTier IV&8] &c&lStorage Box"
+								cancel event
+						else:
+							send "&cYou don't have enough materials!"
+							cancel event
+					else:
+						send "&cyou don't have enough money!"
+						cancel event
+
+		open the last gui for player
+
+on right-click:
+	if name of item = "&8[&eTier I&8] &f&lStorage Box":
+		cancel event
+		set {_bp1} to chest inventory with 1 rows named "&8[&eTier I&8] &f&lStorage Box"
+		loop 1*9 times:
+			set slot (loop-value)-1 of {_bp1} to {bp1::%player's uuid%::%loop-value%}
+		open {_bp1} to player
+
+		play sound "block.shulker_box.open" at volume 1 with pitch 1 to player
+
+	
+	if name of item = "&8[&eTier II&8] &a&lStorage Box":
+		cancel event
+		set {_bp2} to chest inventory with 2 rows named "&8[&eTier II&8] &a&lStorage Box"
+		loop 2*9 times:
+			set slot (loop-value)-1 of {_bp2} to {bp2::%player's uuid%::%loop-value%}
+		open {_bp2} to player
+
+		play sound "block.shulker_box.open" at volume 1 with pitch 1 to player
+		
+	if name of item = "&8[&eTier III&8] &b&lStorage Box":
+		cancel event
+		set {_bp3} to chest inventory with 3 rows named "&8[&eTier III&8] &b&lStorage Box"
+		loop 3*9 times:
+			set slot (loop-value)-1 of {_bp3} to {bp3::%player's uuid%::%loop-value%}
+		open {_bp3} to player
+
+		play sound "block.shulker_box.open" at volume 1 with pitch 1 to player
+	
+	if name of item = "&8[&eTier IV&8] &c&lStorage Box":
+		cancel event
+		set {_bp4} to chest inventory with 4 rows named "&8[&eTier IV&8] &c&lStorage Box"
+		loop 4*9 times:
+			set slot (loop-value)-1 of {_bp4} to {bp4::%player's uuid%::%loop-value%}
+		open {_bp4} to player
+
+		play sound "block.shulker_box.open" at volume 1 with pitch 1 to player
+		
+	if name of item = "&8[&eTier V&8] &5&lStorage Box":
+		cancel event
+		set {_bp5} to chest inventory with 5 rows named "&8[&eTier V&8] &5&lStorage Box"
+		loop 5*9 times:
+			set slot (loop-value)-1 of {_bp5} to {bp5::%player's uuid%::%loop-value%}
+		open {_bp5} to player
+
+		play sound "block.shulker_box.open" at volume 1 with pitch 1 to player
+
+on inventory close:
+	if event-inventory's name = "&8[&eTier I&8] &f&lStorage Box":
+		loop 1*9 times:
+			set {bp1::%player's uuid%::%loop-value%} to slot (loop-value)-1 of event-inventory
+
+	if event-inventory's name = "&8[&eTier II&8] &a&lStorage Box":
+		loop 2*9 times:
+			set {bp2::%player's uuid%::%loop-value%} to slot (loop-value)-1 of event-inventory
+
+	if event-inventory's name = "&8[&eTier III&8] &b&lStorage Box":
+		loop 3*9 times:
+			set {bp3::%player's uuid%::%loop-value%} to slot (loop-value)-1 of event-inventory
+	
+	if event-inventory's name = "&8[&eTier IV&8] &c&lStorage Box":
+		loop 4*9 times:
+			set {bp4::%player's uuid%::%loop-value%} to slot (loop-value)-1 of event-inventory
+	
+	if event-inventory's name = "&8[&eTier V&8] &5&lStorage Box":
+		loop 5*9 times:
+			set {bp5::%player's uuid%::%loop-value%} to slot (loop-value)-1 of event-inventory
